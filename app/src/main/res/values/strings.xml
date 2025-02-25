@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RecipeBook</string>
+    <string name="loginPlaceHolder">Login</string>
+    <string name="passwordPlaceHolder">Password</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="registration_button">Registration</string>
+</resources>
