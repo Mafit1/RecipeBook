@@ -18,6 +18,9 @@ import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,15 +30,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.recipebook.MainViewModel
 import com.example.recipebook.R
 import com.example.recipebook.Recipe
 import com.example.recipebook.screens.modules.DishCard
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
 @Composable
 fun HomeScreen(
-    dishList: List<Recipe> = listOf(Recipe(), Recipe(), Recipe(), Recipe(), Recipe(), Recipe())
+    dishList: List<Recipe> = listOf(Recipe(), Recipe(), Recipe(), Recipe(), Recipe(), Recipe()),
+    viewmodel: MainViewModel
 ) {
     Column(
         modifier = Modifier
@@ -72,10 +76,15 @@ fun HomeScreen(
                     modifier = Modifier.padding(bottom = 12.dp)
                 )
             }
+            val query = remember { mutableStateOf("") }
             SearchBar(
-                query = "",
-                onQueryChange = {},
-                onSearch = {},
+                query = query.value,
+                onQueryChange = {
+                    query.value = it
+                },
+                onSearch = {
+                    viewmodel.getProducts(query = query.value)
+                },
                 active = true,
                 onActiveChange = {},
                 colors = SearchBarDefaults.colors(containerColor = Color.Transparent),
@@ -87,10 +96,12 @@ fun HomeScreen(
                 placeholder = { Text(stringResource(R.string.search))},
                 modifier = Modifier.fillMaxWidth()
             ) {
+                val list = viewmodel.products.collectAsState().value
                 Spacer(Modifier.height(6.dp))
                 LazyColumn{
-                    items(dishList) { dishRecipe ->
-                        DishCard(dishRecipe)
+                    items(list) { product ->
+                        Text("${product.title} ${product.brand}")
+                        //DishCard(dishRecipe)
                     }
                 }
             }
