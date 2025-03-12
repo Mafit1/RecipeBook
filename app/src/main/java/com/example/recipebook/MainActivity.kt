@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     }
                 ) { paddingValues ->
                     paddingValues
-                    HomeScreen(viewmodel = viewModel)
+                    HomeScreen(viewModel = viewModel)
                 }
             }
         }

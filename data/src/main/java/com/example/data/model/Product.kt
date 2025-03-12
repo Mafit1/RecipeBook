@@ -3,7 +3,7 @@ package com.example.data.model
 import com.google.gson.annotations.SerializedName
 
 
-data class Products (
+data class Product (
 
   @SerializedName("id"                   ) var id                   : Int?               = null,
   @SerializedName("title"                ) var title                : String?            = null,
