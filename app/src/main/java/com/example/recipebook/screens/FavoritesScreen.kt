@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.recipebook.R
 import com.example.recipebook.Recipe
-import com.example.recipebook.screens.modules.FavItem
+import com.example.core.ui.FavItem
 
 @Preview(showSystemUi = true)
 @Composable
@@ -47,7 +47,10 @@ fun FavouritesScreen(list: List<Recipe> = List(20) { Recipe() }) {
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     group.forEach { item ->
-                        FavItem(item, modifier = Modifier.weight(0.5f).padding(8.dp))
+                        com.example.core.ui.FavItem(
+                            item,
+                            modifier = Modifier.weight(0.5f).padding(8.dp)
+                        )
                     }
                 }
             }

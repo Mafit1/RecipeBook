@@ -1,4 +1,4 @@
-package com.example.recipebook.screens.modules
+package com.example.core.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

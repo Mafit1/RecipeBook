@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.material3.Scaffold
 import com.example.recipebook.screens.HomeScreen
-import com.example.recipebook.screens.modules.BottomBar
+import com.example.core.ui.BottomBar
 import com.example.recipebook.ui.theme.RecipeBookTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,7 +23,7 @@ class MainActivity : ComponentActivity() {
             RecipeBookTheme {
                 Scaffold(
                     bottomBar = {
-                        BottomBar()
+                        com.example.core.ui.BottomBar()
                     }
                 ) { paddingValues ->
                     paddingValues
