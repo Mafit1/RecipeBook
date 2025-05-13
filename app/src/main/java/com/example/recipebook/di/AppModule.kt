@@ -1,7 +1,5 @@
 package com.example.recipebook.di
 
-import com.example.data.remote.FakeApi
-import com.example.data.repsitory.FakeRepository
 import com.example.recipebook.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
