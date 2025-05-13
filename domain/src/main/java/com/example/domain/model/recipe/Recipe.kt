@@ -1,4 +1,4 @@
-package com.example.recipebook
+package com.example.domain.model.recipe
 
 data class Recipe(
     val dishName: String = "Dish name Dish name Dish name Dish name Dish name Dish name Dish name",
@@ -12,14 +12,3 @@ data class Recipe(
     val favorite: Boolean = false
 )
 
-
-enum class DishCategory {
-    Breakfast,
-    Dinner,
-    Lunch,
-    Drink,
-    Pasta,
-    Salad,
-    Dessert,
-    Soup
-}

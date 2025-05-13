@@ -31,8 +31,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.recipebook.R
-import com.example.recipebook.Recipe
+import com.example.core.R
+import com.example.domain.model.recipe.Recipe
 
 @Preview
 @Composable
@@ -57,7 +57,7 @@ fun FavItem(
                 .fillMaxWidth()
         ) {
             Image(
-                painter = painterResource(R.drawable.ic_launcher_background),
+                painter = painterResource(R.drawable.fire_svg),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(90.dp),

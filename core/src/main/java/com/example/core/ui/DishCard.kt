@@ -27,8 +27,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.recipebook.R
-import com.example.recipebook.Recipe
+import com.example.core.R
+import com.example.domain.model.recipe.Recipe
 
 @Preview(showBackground = true)
 @Composable
@@ -56,8 +56,8 @@ fun DishCard(
                 .padding(8.dp)
         ) {
             Image(
-                painter = if (recipe.image == null) painterResource(R.drawable.ic_launcher_background)
-                    else painterResource(recipe.image),
+                painter = if (recipe.image == null) painterResource(R.drawable.fire_svg)
+                    else painterResource(recipe.image!!),
                 contentDescription = "",
                 modifier = Modifier
                     .size(90.dp)
