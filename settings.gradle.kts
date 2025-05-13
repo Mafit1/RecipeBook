@@ -23,3 +23,5 @@ rootProject.name = "RecipeBook"
 include(":app")
 include(":data")
 include(":domain")
+include(":feature:auth")
+include(":core")
