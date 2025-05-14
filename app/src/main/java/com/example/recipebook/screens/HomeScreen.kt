@@ -41,15 +41,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.recipebook.MainViewModel
-import com.example.recipebook.R
-import com.example.recipebook.Recipe
+import com.example.domain.model.recipe.Recipe
+import com.example.core.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     dishList: List<Recipe> = listOf(Recipe(), Recipe(), Recipe(), Recipe(), Recipe(), Recipe()),
-    viewModel: MainViewModel
 ) {
     Column(
         modifier = Modifier
@@ -101,7 +99,7 @@ fun HomeScreen(
                 },
                 leadingIcon = {
                     IconButton(onClick = {
-                        viewModel.search(query = query.value)
+                        //viewModel.search(query = query.value)
                     }) {
                         Icon(Icons.Default.Search, "", //tint = colorResource(R.color.text_second)
                         )
@@ -132,58 +130,58 @@ fun HomeScreen(
                 )
             ) {
 
-                if (viewModel.errorState.collectAsState().value) {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                "Проблемы с соединением",
-                                //color = colorResource(R.color.text),
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 16.sp
-                            )
-                            TextButton(onClick = {
-                                viewModel.search(query.value)
-                            }) {
-                                Text(
-                                    "Обновить",
-                                    //color = colorResource(R.color.accent),
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 16.sp
-                                )
-                            }
-                        }
-
-                    }
-                } else if (viewModel.emptyState.collectAsState().value) {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                "Ничего не найдено",
-                                //color = colorResource(R.color.text),
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 16.sp
-                            )
-                        }
-
-                    }
-                } else {
-                    val list = viewModel.products.collectAsState().value
-                    LazyColumn {
-                        items(list) { product ->
-                            Text("${product.title} ${product.category}")
-                        }
-                    }
-                }
+//                if (viewModel.errorState.collectAsState().value) {
+//                    Box(
+//                        modifier = Modifier.fillMaxSize(),
+//                        contentAlignment = Alignment.Center
+//                    ) {
+//                        Column(
+//                            horizontalAlignment = Alignment.CenterHorizontally
+//                        ) {
+//                            Text(
+//                                "Проблемы с соединением",
+//                                //color = colorResource(R.color.text),
+//                                fontWeight = FontWeight.Bold,
+//                                fontSize = 16.sp
+//                            )
+//                            TextButton(onClick = {
+//                                viewModel.search(query.value)
+//                            }) {
+//                                Text(
+//                                    "Обновить",
+//                                    //color = colorResource(R.color.accent),
+//                                    fontWeight = FontWeight.Bold,
+//                                    fontSize = 16.sp
+//                                )
+//                            }
+//                        }
+//
+//                    }
+//                } else if (viewModel.emptyState.collectAsState().value) {
+//                    Box(
+//                        modifier = Modifier.fillMaxSize(),
+//                        contentAlignment = Alignment.Center
+//                    ) {
+//                        Column(
+//                            horizontalAlignment = Alignment.CenterHorizontally
+//                        ) {
+//                            Text(
+//                                "Ничего не найдено",
+//                                //color = colorResource(R.color.text),
+//                                fontWeight = FontWeight.Bold,
+//                                fontSize = 16.sp
+//                            )
+//                        }
+//
+//                    }
+//                } else {
+//                    val list = viewModel.products.collectAsState().value
+//                    LazyColumn {
+//                        items(list) { product ->
+//                            Text("${product.title} ${product.category}")
+//                        }
+//                    }
+//                }
             }
             /*
             SearchBar(
