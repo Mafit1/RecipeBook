@@ -16,9 +16,8 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.recipebook.R
-import com.example.recipebook.Recipe
-import com.example.core.ui.FavItem
+import com.example.core.R
+import com.example.domain.model.recipe.Recipe
 
 @Preview(showSystemUi = true)
 @Composable

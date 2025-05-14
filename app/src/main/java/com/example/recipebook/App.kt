@@ -2,6 +2,8 @@ package com.example.recipebook
 
 import android.app.Application
 import com.example.recipebook.di.appModule
+import com.example.recipebook.di.authModule
+import com.example.recipebook.di.dataModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,7 +15,7 @@ class App: Application() {
         startKoin{
             androidLogger(Level.INFO)
             androidContext(this@App)
-            modules(listOf(appModule))
+            modules(listOf(appModule, authModule, dataModule))
         }
     }
 }
